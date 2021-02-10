@@ -1,0 +1,52 @@
+COMO APAGAR UM BANCO DE DADOS:
+Abra o MySQL Workbench, acesse sua Database que quer apagar.
+Clique em Create a new SQL tab.
+E nele escreva o comando -> drop database seudatabase;
+Depois pressiona CTRL + Enter ou no símbolo de Raio com I.
+
+CRIANDO BANCO DE DADOS COM PARÂMETROS:
+Parâmetros em banco de dados são chamados de Constraints.
+Para criar um banco de dados com Constraints, digite o comando abaixo:
+
+create database seudatabase		-> sem ;
+default character set utf8		-> Constraint para definir caracteres
+default collate utf8_general_ci;	-> Collection também serve para definição de caracteres
+
+Depois pressione CTRL + Enter para concluir.
+
+CRIANDO TABELAS COM PARÂMETROS:
+Para criar tabelas com parâmetros ou Constraint, digite o comando abaixo:
+
+create table pessoas (
+id int not null auto_increment,	
+nome varchar(30) not null,
+nascimento date,
+sexo enum('M','F'),
+peso decimal (5,2),
+altura decimal (3,2),
+nacionalidade varchar(20) default 'Brasil',
+primary key(id)
+) default charset = utf8;
+
+Em "id int not null auto_increment," o id é identificação que será
+dada a uma pessoa e isto será só dela, como um CPF.
+not null -> O campo não vai poder estar vazio
+auto_increment -> id vai ser dado automaticamente
+
+Em "nome varchar(30) not null,", o nome não poderá estar com campo vazio.
+
+Em "nascimento date," será dado o ano de nascimento da pessoa.
+
+Em "sexo enum('M','F')," foi feito uma coleção de M e F, não podendo ter outras opções.
+
+Em "peso decimal (5,2)," foi definido 5 digitos numéricos com 2 casas decimais.
+
+Em "altura decimal (3,2)," foi definido 3 dígitos numéricos com 2 casas decimais.
+
+Em "nacionalidade varchar(20) default 'Brasil'," terá como base o Brasil.
+
+Em "primary key(id)" indica que é uma chave de identificação, 
+não podendo ter outra igual, e, tem que estar por último.
+
+Em "default charset = utf8" define os caracteres brasileiros com acento.
+E tem que estar depois do parênteses e antes de fechar com ;
