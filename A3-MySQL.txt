@@ -1,0 +1,82 @@
+ACESSANDO O WORKBENCH:
+Primeiramente, você precisa conectar o MySQL com o MySQL Workbench.
+Para isto, abra o Workbench, na tela inicial clique em + na opção "MySQL Connections".
+Antes, certifique-se que o MySQL e APACHE estão conectados.
+E, em connection name, coloque o nome do seu novo Workbench.
+Após isto ele será adicionado a tela inicial do MySQL Workbench.
+Clique nele para acessá-lo.
+
+CRIANDO UM BANCO DE DADOS:
+create database qualquernome; -> Serve para criar um banco de dados chamado qualquernome
+depois clique no raio com I no meio para concluir.
+
+CRIANDO TABELAS:
+create table qualquernome (
+aleatorio1 tipoprimitivo(),	-> precisa de vírgula
+aleatorio2 tipoprimitivo(),	-> precisa de vírgula
+aleatorio3 tipoprimitivo()	-> não precisa de vírgulapois é o último
+);	-> tem que terminar o código com ;
+
+Serve para criar um banco de dados chamado qualquernome
+depois clique no raio com I no meio para concluir.
+	
+TIPOS PRIMITIVOS:
+São eles as 4 famílias, NUMÉRICO, DATA/TEMPO, LITERAL e ESPACIAL.
+
+NÚMERICO se subdividem em -> Inteiro, Real e Lógico.
+
+	Inteiro se subdivide em várias precisões -> TinyInt, SmallInt, Int, MediumInt e BigInt.
+	A diferença nesses tipos é a quantidade de bits que ele vai utilizar para armazenar os dados.
+	TinyInt por exemplo usa menos dados que BigInt.
+	TinyInt ocupa 3 bytes e Int ocupa 11 bytes.
+
+	Real se subdivide em várias precisões -> Decimal, Float, Double e Real.
+
+	Lógico se subdivide em várias precisões -> Bit e Boolean.
+	Tipo lógico guarda Sim ou Não, Verdadeiro ou Falso 0 e 1.
+
+DATA/TEMPO se subdividem em várias precisões -> Date, DateTime, TimeStamp, Time e Year.
+	Date é uma data.
+	DateTime e TimeStamp são datas, horas e algumas informações a mais.
+	Time somente mostra a hora.
+	Year mostra só o ano.
+
+LITERAL se subdividem em -> Caractere, Texto, Binário e Coleção.
+
+	Caractere se subdivide em várias precisões -> Char e VarChar.
+	A diferença entre Char e VarChar, um é fixo e o outro é variante.
+	Serve para guardar telefone ou nomes ou endereços, por exemplo.
+	Char(1) guarda uma letra.
+
+	Texto se subdivide em várias precisões -> TinyText, Text, MediumText e LongText.
+	Serve para descrição de uma pessoa ou objeto.
+	
+	Binário se subdivide em várias precisões -> TinyBlob, Blob, MediumBlob e LongBlob.
+	Guarda qualquer coisa em binário, como imagens.
+	Guardar imagens não é muito recomendado dentro do banco de dados.
+
+	Coleção se subdivide em várias precisões -> Enum e Set.
+	São tipos para configurar quais valores são permitidos na hora do cadastro, por exeplo.
+
+ESPACIAL se subdividem em várias precisões -> Geometry, Point, Polygon, e MultiPolygon.
+	O tipo espacial é novo no MySQL e serve para fazer cadastro de volumétricos.
+
+COMO ACESSAR O TERMINAL DO XAMPP PARA CONSULTAR SEU BANCO DE DADOS:
+Primeiro acesse o PROMPT DE COMANDO do Windows.
+Depois digite -> C:\Users\Eu>C:\xampp\mysql\bin\mysql.exe -u root
+e aperte Enter.
+Depois escreva -> show databases;
+Vai aparecer seu banco de dados.
+Depois escreva -> use qualquernome;
+Vai aparecer escrito Database changed, dizendo que mudou a base de dados.
+Depois escreva -> status;
+Vai aparecer o a base de dados qualquernome que você criou.
+Para ver as tabelas de qualquernome, escreva -> show tables;
+Vai aparecer as tabelas que você tenha criado.
+Depois para acessar a tabela, escreva -> describe tabelaaleatoria;
+Vai aparecer tabelaaleatoria que você tenha criado e com todas as informações dela.
+Para sair do MySQL, digite -> exit
+E então já pode fechar a aba de PROMPT DE COMANDO.
+
+
+
