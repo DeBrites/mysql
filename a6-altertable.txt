@@ -1,0 +1,102 @@
+COMANDOS PARA MUDAR A ESTRUTURA DA TABELA:
+
+ALTER TABLE e DROP TABLE são comandos DDL
+
+ADICIONANDO COLUNAS:
+
+describe pessoas;
+alter table pessoas
+add column profissao varchar(10);
+
+ALTER TABLE -> altera a coluna (campo)
+DESCRIBE ou DESC -> exibe as colunas (ou campos)
+ADD COLUMN ou ADD -> adiciona a coluna ou campo PROFISSAO
+Porém ele adiciona a coluna e deixa por último.
+Para colocar a coluna em outra posição, por exemplo depois de NOME, digite:
+
+alter table pessoas
+add column profissao varchar(10) after nome;
+
+AFTER -> depois de que coluna vai colocar, nesse caso NOME
+Caso quiser colocar uma nova coluna no início, digite:
+
+alter table pessoas
+add column profissao varchar(10) first;
+
+FIRST -> vai colocar a coluna PROFISSAO como primeira opção
+
+COMO APAGAR OU ALTERAR COLUNAS:
+
+alter table pessoas
+drop column profissao;
+
+DROP COLUMN -> remove a coluna ou campo PROFISSAO
+Se não quiser apagar mas mudar alguma coisa nela, digite:
+
+alter table pessoas
+modify column profissao varchar(20) not null default '';
+
+MODIFY COLUMN -> muda características da coluna, no caso aumentou de 10 para 20
+Com Modify Column pode mudar o Tipo Primitivo e as Constraints.
+
+Para mudar o nome da coluna, digite o comando:
+
+alter table pessoas
+change column profissao prof varchar(20);
+
+CHANGE COLUMN -> muda o nome da coluna e suas propriedades
+PROFISSAO PROF -> coluna anterior era PROFISSAO e agora vai ser PROF
+Porém nessa configuração ele perde as Constraints NOT NULL e DEFAULT ''
+Para manter as Constraints, é preciso declarar elas novamente, e ficaria:
+
+alter table pessoas
+change column profissao prof varchar(20) not null default '';
+
+ALTERANDO A TABELA INTEIRA:
+
+alter table pessoas
+rename to gafanhotos;
+
+RENAME TO -> ele nomeia a tabela pessoas para gafanhotos
+
+Para criar uma tabela sem repetir outra, digite o comando:
+
+create table if not exists cursos (
+nome varchar(30) not null unique,
+descricao text,
+carga int unsigned,
+totaulas int,
+ano year default '2021'
+) default charset = utf8;
+
+IF NOT EXISTS ou IF EXIST-> ele analise se existe ou não outra tabela
+ou banco de dados, nesse caso analisa se tem outra tabela chamada CURSOS
+e caso não tiver, vai efetuar o comando
+
+UNIQUE -> não deixa que se repita o mesmo nome, é diferente de Chave Primária
+Primary Key além de ser Unique, também possui outras características
+
+UNSIGNED -> não deixar ter números negativos (sem sinal)
+
+Adicionando uma  nova coluna com chave primária, digite:
+
+alter table cursos
+add column idcurso int first;
+
+Não é possível adicionar uma coluna já como chave primária num só comando,
+para isso, após criado a coluna, pode digitar o comando:
+
+alter table cursos
+add primary key (idcurso);
+
+ADD PRIMARY KEY () -> faz com que a coluna se torne chave primária
+
+PARA APAGAR TABELAS:
+
+Para apagar a tabela, apenas digite:
+
+drop table cursos;
+
+Acaba apagando a tabela e as colunas dentro dela
+
+
