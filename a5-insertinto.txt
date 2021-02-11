@@ -1,0 +1,44 @@
+Comando CREATE TABLE e CREATE DATABASE é um comando DDL 
+(Data Definintion Languagem ou Linguaguem de Definição de Dados).
+Existem outros comandos como DQL, DTL, DCL, DML...
+INSERT INTO é um comando DML 
+(Data Manipulation Language ou Linguagem de Manipulação de Dados).
+
+PARA INSERIR DADOS NO BANCO DE DADOS:
+Digite o comando abaixo:
+
+insert into pessoas
+(nome, nascimento, sexo, peso, altura, nacionalidade)
+values
+('Godofredo', '1984-01-02', 'M', '78.5', '1.83', 'Brasil');
+
+INSERT INTO -> é o comando para especificar os dados para o banco de dados
+PESSOAS -> é a tabela criada que vai receber os dados dentro do banco de dados
+(nome, nascimento, sexo, peso, altura, nacionalidade) -> são as constraints já criadas anteriormente
+VALUES -> é o comando para inserir os dados
+('Godofredo', '1984-01-02', 'M', '78.5', '1.83', 'Brasil'); -> são os dados a serem inseridos
+
+ID não foi especificado pois ele está com constante AUTO_INCREMENT
+e o ID será feito automaticamente.
+
+Se os dados forem inseridos na mesma ordem definida no banco, não precisa definir os campos.
+E o comando ficaria:
+
+insert into pessoas values
+('Godofredo', '1984-01-02', 'M', '78.5', '1.83', 'Brasil');
+
+OBS: Em NACIONALIDADE, 'Brasil' pode ser trocado por DEFAULT 
+caso só for para brasileiros.
+No ID, assim como em NACIONALIDADE, pode se colocar DEFAULT.
+
+PARA INSERIR MUITOS DADOS NO BANCO DE DADOS AO MESMO TEMPO:
+
+insert into pessoas values
+('Godofredo', '1984-01-02', 'M', '78.5', '1.83', 'Brasil'),	-> põe ,
+('Maria', '1999-12-30', 'F', '55.2', '1.65', 'Portugal'),	-> põe ,
+('Creuza', '1920-12-30', 'F', '50.2', '1.65', default),		-> põe ,
+('Adalgiza', '1930-11-02', 'F', '63.5', '1.75', 'Irlanda');	-> põe ;
+
+PARA VISUALISAR OS DADOS:
+
+select * from pessoas;	-> irá aparecer os dados cadastrados
